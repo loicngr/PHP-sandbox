@@ -175,11 +175,21 @@ class Router
         return (new Controller())->getModel($modelName);
     }
 
+    /**
+     * Redirect to an other page
+     *
+     * @param string $key
+     */
     private function redirectTo($key): void
     {
         $this->routes[$key]['fn']($this->routes[$key]['args']);
     }
 
+    /**
+     * Redirect with reload to an other page
+     *
+     * @param string $key
+     */
     private function reloadTo($key): void
     {
         header("Location: $key");
